@@ -26,12 +26,14 @@
 # print reshape_nums
 # for i in range(1,0):
 #     print i
-
-nums = [1,2,3,4,5]
-print 2 in nums[2:]
-nums = [4,3,2,7,8,2,3,1]
-print nums[1] in nums[1:]
-for i in nums:
-    print i
+i  = 1
+nums = [1,5,6,2,3,4,5]
+nums[i], nums[nums[i] - 1] = nums[nums[i] - 1], nums[i]
+print  nums
+# print 2 in nums[2:]
+# nums = [4,3,2,7,8,2,3,1]
+# print nums[1] in nums[1:]
+# for i in nums:
+#     print i
 # nums = nums[1:4]
 # print nums[1:3]
