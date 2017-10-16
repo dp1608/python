@@ -26,10 +26,10 @@
 # print reshape_nums
 # for i in range(1,0):
 #     print i
-i  = 1
-nums = [1,5,6,2,3,4,5]
-nums[i], nums[nums[i] - 1] = nums[nums[i] - 1], nums[i]
-print  nums
+# i  = 1
+# nums = [1,5,6,2,3,4,5]
+# nums[i], nums[nums[i] - 1] = nums[nums[i] - 1], nums[i]
+# print  nums
 # print 2 in nums[2:]
 # nums = [4,3,2,7,8,2,3,1]
 # print nums[1] in nums[1:]
@@ -37,3 +37,27 @@ print  nums
 #     print i
 # nums = nums[1:4]
 # print nums[1:3]
+nums = [2,5,6,2,3,4,5]
+# a = sorted(nums)
+# print a
+import collections
+c = collections.Counter(nums)
+mostcommon = c.most_common(2)
+print mostcommon[0][0]
+
+# print c
+# print type(c)
+# print c.items()
+# print c.values()
+# print c.keys()
+# print c.get(2)
+# c.pop(2)
+# print c
+# print c.most_common(1)
+# print 'index:'
+# print nums.index(2)
+# print nums.index(2,1,6)
+
+# print s[0][1]
+for i in range(10,0,-1):
+    print i
