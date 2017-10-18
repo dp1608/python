@@ -36,14 +36,18 @@
 # for i in nums:
 #     print i
 # nums = nums[1:4]
-# print nums[1:3]
-nums = [2,5,6,2,3,4,5]
+# # print nums[1:3]
+# nums = [2,5,6,2,3,4,5]
+# nums.insert(1,10)
+# print nums
+# print max(nums)
+# print min(nums)
 # a = sorted(nums)
 # print a
-import collections
-c = collections.Counter(nums)
-mostcommon = c.most_common(2)
-print mostcommon[0][0]
+# import collections
+# c = collections.Counter(nums)
+# mostcommon = c.most_common(2)
+# print mostcommon[0][0]
 
 # print c
 # print type(c)
@@ -59,5 +63,9 @@ print mostcommon[0][0]
 # print nums.index(2,1,6)
 
 # print s[0][1]
-for i in range(10,0,-1):
-    print i
+# for i in range(10,0,-1):
+#     print i
+nums = [10,3,2,7,8,2,3,1]
+print max(nums[1:4])
+# nums = [[1]]
+# nums[0][0] = 1
