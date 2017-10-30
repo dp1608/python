@@ -20,7 +20,7 @@ Note:
 Elements of the given array will be in the range [-10,000, 10,000].
 """
 
-# : Time Limit Exceeded
+
 class Solution(object):
     def findMaxAverage(self, nums, k):
         """
@@ -28,21 +28,47 @@ class Solution(object):
         :type k: int
         :rtype: float
         """
-        i = 0
-        max_num = nums[0]
-        temp = 0
-        min_num = 0
-        while i < len(nums) - k + 1:
-            if min_num > nums[i]:
-                i += 1
-                continue
-            temp = sum(nums[i:i + k])
-            min_num = min(nums[i:i + k])
-            if temp > max_num:
-                max_num = temp
-            i += 1
-        # return max
-        return float(max_num) / k
+        P = [0]
+
+        for num in nums:
+            P.append(P[-1] + num)
+
+        max_k = max(P[i + k] - P[i]
+                    for i in range(0,len(nums)- k + 1))
+
+        return max_k / float(k)
+
+
+
+
+
+
+
+
+
+# : Time Limit Exceeded
+# class Solution(object):
+#     def findMaxAverage(self, nums, k):
+#         """
+#         :type nums: List[int]
+#         :type k: int
+#         :rtype: float
+#         """
+#         i = 0
+#         max_num = nums[0]
+#         temp = 0
+#         min_num = 0
+#         while i < len(nums) - k + 1:
+#             if min_num > nums[i]:
+#                 i += 1
+#                 continue
+#             temp = sum(nums[i:i + k])
+#             min_num = min(nums[i:i + k])
+#             if temp > max_num:
+#                 max_num = temp
+#             i += 1
+#         # return max
+#         return float(max_num) / k
 
 
 So = Solution()
