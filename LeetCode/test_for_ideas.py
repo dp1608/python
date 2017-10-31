@@ -65,8 +65,10 @@
 # print s[0][1]
 # for i in range(10,0,-1):
 #     print i
-nums = [10,3,2,7,8,2,3,1]
-print min(nums[1:4])
+nums = [10,3,2,7,-1,8,2,3,1]
+# print nums[::-1]
 # nums = [[1]]
 # nums[0][0] = 1
-print int(0.9)
+# nums.sort()
+print nums[1:]
+print [1] + [2]
