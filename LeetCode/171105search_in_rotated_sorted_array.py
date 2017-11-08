@@ -53,7 +53,7 @@ class Solution(object):
                     res = erfen(self, min_index, max_index, target)
                     return res
                 if nums[middle] > nums[0] and nums[middle] >= target:
-                    res = erfen(self,min_index,middle,target)
+                    res = erfen(self, min_index, middle, target)
                     return res
                 if nums[middle] > nums[0] and nums[middle] < target:
                     min_index = middle
