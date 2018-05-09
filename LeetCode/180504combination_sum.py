@@ -80,6 +80,7 @@ class Solution(object):
         """
         res = []
         candidates.sort()
+
         def com(nums, target, i, cur):
             if i == len(nums):
                 return
@@ -104,4 +105,4 @@ class Solution(object):
 So = Solution()
 candidates = [2, 3, 5]
 target = 8
-print(So.combinationSum(candidates,target))
+print(So.combinationSum(candidates, target))
