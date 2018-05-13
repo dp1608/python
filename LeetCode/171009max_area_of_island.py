@@ -56,8 +56,8 @@ class Solution(object):
             return 0
         elif grid[row][col] == 1:
             grid[row][col] = 0
-            result = self.findArea(grid,row-1,col)+self.findArea(grid,row+1,col)+\
-                   self.findArea(grid,row,col+1)+self.findArea(grid,row,col-1)+1
+            result = self.findArea(grid, row-1, col) + self.findArea(grid, row + 1, col) + \
+                     self.findArea(grid, row, col + 1) + self.findArea(grid, row, col-1)+1
             return result
 
 Max = Solution()
@@ -70,5 +70,5 @@ grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],
  [0,0,0,0,0,0,0,1,1,1,0,0,0],
  [0,0,0,0,0,0,0,1,1,0,0,0,0]]
 result = Max.maxAreaOfIsland(grid)
-print 'finish'
-print result
+print('finish')
+print(result)
