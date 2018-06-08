@@ -87,6 +87,7 @@ class Solution(object):
 if __name__ == '__main__':
     s1 = '42'
     s1 = "   -42"
+    s1 = "-+42"
     s1 = "4193 with words"
     s1 = "words and 987"
     s1 = "91283472332"
