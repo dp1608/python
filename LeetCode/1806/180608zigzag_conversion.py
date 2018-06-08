@@ -42,7 +42,10 @@ class Solution(object):
         :rtype: str
         """
         size = len(s)
-
+        if numRows < 1:
+            return
+        if numRows == 1:
+            return s
         cvt_s = [[] for _ in range(numRows)]
         ss = ''
         traverse = 0
