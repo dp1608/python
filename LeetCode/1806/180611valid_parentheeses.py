@@ -47,5 +47,20 @@ class Solution(object):
         size = len(s)
         if size < 1:
             return True
-        
+        dicts = {"(": ")", "[": "]", "{": "}"}
+        stack = []
+        for char in s:
+            if char in dicts:
+                stack.append(char)
+            elif len(stack) == 0:
+                return False
+            elif dicts[stack.pop()] == char:
+                continue
+            else:
+                return False
+        if len(stack) == 0:
+            return True
+        else:
+            return False
 
+print(Solution().isValid("([)()]"))
