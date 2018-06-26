@@ -65,21 +65,23 @@ class Solution(object):
         """
         if not nums:
             return [[]]
-
+        nums.sort()
         start = nums[0]
         res =[
                 [], [start]
             ]
 
         def add_one_num(number, res):
-            this = res[:]
-            pre = res[:]
+            this = [i[:] for i in res]
+            pre = [i[:] for i in res]
             size = len(this)
             for i in range(size):
                 this[i].append(number)
             # this = pre + this
             # this.append([])
-            this += pre
+            for i in range(size):
+                if pre[i] not in this:
+                    this.append(pre[i])
             return this
 
         for i in range(1, len(nums)):
@@ -87,5 +89,6 @@ class Solution(object):
 
         return res
 
-nums = [1, 2]
+nums = [1, 2, 2]
+nums = [4,4,4,1,4]
 print(Solution().subsetsWithDup(nums))
