@@ -34,4 +34,28 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        
+
+        def inorder_tree(root, res):
+            if root:
+                res = inorder_tree(root.left, res)
+                res.append(root.val)
+                res = inorder_tree(root.right, res)
+                return res
+            else:
+                return res
+
+
+
+        res = inorder_tree(root, [])
+        return res
+
+
+a = TreeNode(1)
+b = TreeNode(2)
+c = TreeNode(3)
+a.right = b
+b.left = c
+res = Solution().inorderTraversal(a)
+print(res)
+
+
