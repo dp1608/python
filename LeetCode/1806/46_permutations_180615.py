@@ -39,7 +39,7 @@ class Solution(object):
             if not nums:
                 res.append(path)
             for i in range(len(nums)):
-                dfs(nums[:i] + nums[i+1:], path+ [nums[i]])
+                dfs(nums[:i] + nums[i+1:], path + [nums[i]])
 
         # for i in range(size):
         dfs(nums, path=[])
