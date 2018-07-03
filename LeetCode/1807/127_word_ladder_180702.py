@@ -52,6 +52,39 @@ class Solution(object):
         if endWord not in wordList:
             return 0
 
-        # def core(begin, end, word):
+        def word_dist(word1, word2):
+            return sum(word1[i] != word2[i] for i in range(len(word)))
 
-        
+        # def core(begin, end, word):
+        from collections import deque, defaultdict
+        queue = deque([beginWord, 1])
+        visited = set([beginWord])
+        neighbors = defaultdict(list)
+        for word in wordList:
+            for x in range(len(word)):
+                token = word[:x] + '_' + word[x + 1:]
+                neighbors[token] .append(word)
+
+        while queue:
+            word = queue.popleft()
+            length = queue.popleft()
+            if word_dist(word, endWord) <= 1:
+                return length + 1
+            for x in range(len(word)):
+                token = word[:x] + '_' + word[x + 1:]
+                for ladder in neighbors[token]:
+                    if ladder not in visited:
+                        visited.add(ladder)
+                        queue += [ladder, length + 1]
+        return 0
+
+beginWord = "hit"
+endWord = "hot"
+wordList = ["hot","dot","dog","lot","log","cog"]
+print(Solution().ladderLength(beginWord, endWord, wordList))
+# from collections import deque, defaultdict
+# queue = deque(([beginWord, 1]))
+# a = queue.popleft()
+# print(a)
+
+
