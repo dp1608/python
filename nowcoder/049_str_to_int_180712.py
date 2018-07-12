@@ -24,7 +24,7 @@ class Solution:
         def verify(s):
             if not s:
                 return False
-            veri = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+            veri = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
             for char in s:
                 if char not in veri:
                     return False
@@ -35,12 +35,14 @@ class Solution:
             s = s[1:]
             if not verify(s):
                 return 0
-        if s[0] == '-':
+        elif s[0] == '-':
             positive = False
             s = s[1:]
             if not verify(s):
                 return 0
-
+        else:
+            if not verify(s):
+                return 0
         res = 0
         for char in s:
             res = res * 10 + (ord(char) - ord('0'))
@@ -50,4 +52,9 @@ class Solution:
             return -res
 
 print(Solution().StrToInt("1a33"))
+#
+# veri = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+# for char in "1a33":
+#     if char not in veri:
+#         print(char)
 
