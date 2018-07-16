@@ -18,3 +18,33 @@ class Solution:
         if not rotateArray:
             return 0
 
+        def shunxu(array):
+            min_a = array[0]
+            for i in range(len(array)):
+                if array[i] < min_a:
+                    min_a = array[i]
+            return min_a
+
+        size = len(rotateArray)
+        left = 0
+        right = size - 1
+        mid = left
+        while rotateArray[right] <= rotateArray[left]:
+            if right - left == 1:
+                mid = right
+                break
+
+            mid = (right + left) // 2
+
+            if rotateArray[mid] == rotateArray[left] and rotateArray[left] == rotateArray[right]:
+                return shunxu(rotateArray)
+
+            if rotateArray[mid] >= rotateArray[left]:
+                left = mid
+                continue
+            elif rotateArray[mid] <= rotateArray[right]:
+                right = mid
+                continue
+        return rotateArray[mid]
+
+
