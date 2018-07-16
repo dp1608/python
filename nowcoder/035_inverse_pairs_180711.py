@@ -19,4 +19,37 @@ class Solution:
         # write code here
         if not data:
             return 0
-        p = 0
+        global count
+        count = 0
+
+        def merge(arr):
+            global count
+            if len(arr) <= 1:
+                return arr
+            mid = (len(arr)) // 2
+            left = merge(arr[:mid])
+            right = merge(arr[mid:])
+            l = 0
+            r = 0
+            res = []
+            while l < len(left) and r < len(right):
+                if left[l] <= right[r]:
+                    res.append(left[l])
+                    l += 1
+                else:
+                    res.append(right[r])
+                    count += len(left) - l
+                    r += 1
+                res += left[l:]
+                res += right[r:]
+                return res
+
+        rr = merge(data)
+        # print(rr)
+        return count
+
+a = [1,2,3,4,5,6,7,0]
+print(Solution().InversePairs(a))
+
+
+
