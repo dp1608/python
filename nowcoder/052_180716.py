@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# @StartTime : 2018/7/16 20:27
-# @EndTime : 2018/7/16 20:27
+# @StartTime : 2018/7/16 10:04
+# @EndTime : 2018/7/16 11:12
 # @Author  : Andy
 # @Site    : 
 # @File    : 052_180716.py
@@ -19,3 +19,32 @@ class Solution:
     # s, pattern都是字符串
     def match(self, s, pattern):
         # write code here
+
+        def match_core(s, pattern):
+            if not s and not pattern:
+                return True
+            elif not pattern:
+                return False
+            elif len(pattern) == 1 and len(s) == 1 and pattern[0] == s[0]:
+                return match_core(s[1:], pattern[1:])
+
+            elif len(pattern) > 1 and pattern[1] == '*':
+                return match_core(s, pattern[2:]) \
+                       or (len(s) >= 1 and (s[0] == pattern[0] or pattern[0] == '.') and match_core(s[1:], pattern[2:])) \
+                       or (len(s) >= 1 and (s[0] == pattern[0] or pattern[0] == '.') and match_core(s[1:], pattern))
+            elif s and pattern[0] != '.' and s[0] != pattern[0]:
+                return False
+            elif not s:
+                return False
+            else:
+                return match_core(s[1:], pattern[1:])
+        return match_core(s, pattern)
+
+
+print(Solution().match("ab",".*a*a"))
+# print(Solution().match("a", "ab*a"))
+# print(Solution().match("aaa", "ab*ac*a"))
+# print(Solution().match("a", ".*"))
+# print(Solution().match("", "."))
+# print "123"[4:]
+
