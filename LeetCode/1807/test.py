@@ -5,5 +5,6 @@
 # @Site    : 
 # @File    : test.py
 
-a = set([1,2])
+a = set([1,2,2])
+# print( -1 % 4)
 print(a)
