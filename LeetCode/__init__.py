@@ -5,3 +5,31 @@
 # @Site    : 
 # @File    : __init__.py.py
 # @Software: PyCharm
+
+
+#!/usr/bin/env python
+# coding=utf-8
+
+class Foo(object):
+
+    instance = None
+
+    def __init__(self, name):
+        self.name = name
+
+
+    @classmethod
+    def get_instance(cls):
+        if cls.instance:
+            return cls.instance
+        else:
+            obj = cls('hexm')
+            cls.instance = obj
+            return obj
+
+obj = Foo.get_instance()
+obj1 = Foo.get_instance()
+print(obj.name)
+print(obj1.name)
+print(Foo.instance)
+print(obj)
